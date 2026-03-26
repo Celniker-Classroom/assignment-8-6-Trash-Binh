@@ -1,15 +1,45 @@
 // ----- Functions to implement -----
 
 // 1) myFunc(): persistent counter
+let count = 0 // set thte count to 0
 
+function myFunc (){
+  count++; ///add one
+  return count;
+}
 // 2) getRandomNum(max): 1..max int or 0 if invalid
-
+function getRandomNum(max){
+  if(isNaN(max) || max < 1) return 0;
+  return Math.floor(Math.random()*max)+1;
+}
 // 3) myAdder(x, y): numeric sum
+function myAdder(x,y){
+  x=parseFloat(x);
+  y=parseFloat(y);
+  return (x+y);
+}
+
 
 // 4) distance(x1, y1, x2, y2): Euclidean distance
+function distance(x1, y1, x2, y2){
+  return Math.sqrt((x2 -x1)**2 + (y2-y1)**2);
+}
 
 // 5) quadratic(a, b, c): roots of ax^2 + bx + c = 0
-
+function quadratic(a,b,c){
+  let d = b*b - 4*a*c;
+  if(d > 0){
+    let r1 = (-b +Math.sqrt(d))/(2*a);
+    let r2 =(-b-Math.sqrt(d)) / (2*a);
+    return [r1, r2];
+  } else if (d===0) {
+  return [-b / (2*a)];
+  } else {
+    let r =(-b/(2*a));
+    let im =(Math.sqrt(-d)/(2*a));
+    return [r + "+" + im + "i",r + "-" + im + "i"]; 
+  }
+}
 
 // ----- Helpers -----
 function $(id) { return document.getElementById(id); }
